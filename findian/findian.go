@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// FindIan checks whether conditions are fulfilled and gives back boolean
 func FindIan(s string) bool {
 	lowered := strings.ToLower(s)
 	return strings.HasPrefix(lowered, "i") && strings.Contains(lowered, "a") && strings.HasSuffix(lowered, "n")

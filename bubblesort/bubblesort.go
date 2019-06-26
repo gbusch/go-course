@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"strings"
 )
 
 // Swap swaps the i and i+1 element of a slice sli
@@ -24,15 +26,29 @@ func BubbleSort(sli []int) {
 	}
 }
 
-func main() {
-	s := make([]int, 0, 10)
-	fmt.Println("Please enter 10 integers, hit enter after each: ")
-	for i := 0; i < 10; i++ {
-		var input int
-		fmt.Printf("Integer no %d: ", i+1)
-		fmt.Scanln(&input)
-		s = append(s, input)
+// ConvertInput takes comma-separated input string and converts it to a slice of integers
+func ConvertInput(input string) []int {
+	split := strings.Split(input, ",")
+	slice := make([]int, 0, 1)
+	for num, i := range split {
+		j, err := strconv.Atoi(strings.TrimSpace(i))
+		if err != nil {
+			panic(err)
+		}
+		if num > 9 {
+			fmt.Println("Use only up to 10 integers. Break here...")
+			break
+		}
+		slice = append(slice, j)
 	}
+	return slice
+}
+
+func main() {
+	var input string
+	fmt.Println("Please enter up to 10 integers, separated by comma: ")
+	fmt.Scanln(&input)
+	s := ConvertInput(input)
 	fmt.Println("Got the following slice of integers: ")
 	fmt.Println(s)
 	fmt.Println("Performing simple bubblesort algorithm...")

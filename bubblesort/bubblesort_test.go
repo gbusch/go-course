@@ -11,8 +11,16 @@ func TestSwap(t *testing.T) {
 			t.Errorf("Swap failed. Element %d. Got: %d, expected: %d.", i, slice[i], swapped[i])
 		}
 	}
-	if slice[1] != 3 || slice[2] != 2 {
+}
 
+func TestConvertInput(t *testing.T) {
+	input := "3,2,1, 5"
+	slice := ConvertInput(input)
+	sliced := []int{3, 2, 1, 5}
+	for i := 0; i < len(slice); i++ {
+		if slice[i] != sliced[i] {
+			t.Errorf("Conversion failed. Element %d. Got: %d, expected: %d.", i, slice[i], sliced[i])
+		}
 	}
 }
 
