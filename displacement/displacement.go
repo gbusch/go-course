@@ -15,8 +15,8 @@ func GenDisplaceFn(a float64, v0 float64, s0 float64) func(float64) float64 {
 }
 
 // ReadParameters is a helper function for reading the parameters from user input
-func ReadParameters() []float64 {
-	var param []float64
+func ReadParameters() [3]float64 {
+	var param [3]float64
 	fmt.Println("Please enter acceleration: ")
 	fmt.Scanln(&param[0])
 	fmt.Println("Please enter initial velocity: ")
