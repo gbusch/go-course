@@ -106,7 +106,9 @@ func ConvertInput(input string) []int {
 
 func main() {
 	var input string
-	fmt.Println("Please enter at least 4 integers, separated by comma: ")
+	fmt.Println("Please enter at least 4 integers, separated by comma, spaces are not allowed. ")
+	fmt.Println("For example: 3,2,6,4,1,9,6,3")
+	fmt.Println("Not allowed: 3, 2, 6, 4, 1, 9, 6, 3")
 	fmt.Scanln(&input)
 	s := ConvertInput(input)
 
